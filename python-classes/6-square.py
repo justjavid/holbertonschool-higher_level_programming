@@ -23,6 +23,7 @@ class Square:
     @property
     def position(self):
         return self.__position
+
     @position.setter
     def position(self, value):
         if (len(value) != 2) or any(v < 0 for v in value) or any(not isinstance(v, int) for v in value):
