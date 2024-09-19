@@ -5,14 +5,8 @@
 class Square:
     """Create a private attribute and using getter and setter"""
     def __init__(self, size=0, position=(0, 0)):
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = size
-        if (len(position) != 2) or any(v < 0 for v in position) or any(not isinstance(v, int) for v in position):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -32,7 +26,8 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if (len(value) != 2) or any(v < 0 for v in value) or any(not isinstance(v, int) for v in value):
+        if not (isinstance(value, tuple) and len(value) == 2
+                and all(isinstance(v, int) for v in value) and all(v >= 0 for v in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
