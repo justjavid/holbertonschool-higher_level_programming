@@ -5,8 +5,8 @@
 class Square:
     """Create a private attribute and using getter and setter"""
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -26,8 +26,9 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if not (isinstance(all(value), int) and isinstance(value, tuple)) or all(value) < 0 or len(value) != 2:
+        if (len(value) != 2) or any(v < 0 for v in value) or any(not isinstance(v, int) for v in value):
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         return self.__size ** 2
