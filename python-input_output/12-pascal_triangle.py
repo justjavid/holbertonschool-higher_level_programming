@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Module for Pascal's triangle"""
-from logging import lastResort
 
 
 def pascal_triangle(n):
