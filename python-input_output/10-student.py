@@ -11,7 +11,7 @@ class Student:
 
     def to_json(self, attrs=None):
         new_dict = {}
-        if not attrs:
+        if attrs == None:
             return self.__dict__
         for key in attrs:
             if key in self.__dict__.keys():
