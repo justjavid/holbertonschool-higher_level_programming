@@ -4,27 +4,30 @@ import pickle
 
 
 class CustomObject:
-    def __init__(name, age, is_student):
+    """The CustomObject class"""
+    def __init__(self, name, age, is_student):
         self.name = name
         self.age = age
         self.is_student = is_student
     
     
     def display(self):
-        print(f"Name: {self.name}
-                Age: {self.age}
-                Is Student: {self.is_student}")
+        print(f"Name: {self.name}\n"
+              f"Age: {self.age}\n"
+              f"Is Student: {self.is_student}")
     
+
     def serialize(self, filename):
-    """Function to serialize and save Instance to a file."""
-    try:
-        with open(filename, 'wb') as f:
-            pickle.dump(self, f)
-    except Exception:
-        return None
+        """Function to serialize and save Instance to a file."""
+        try:
+            with open(filename, 'wb') as f:
+                pickle.dump(self, f)
+        except Exception:
+            return None
      
-      
-    @classmethod deserialize(cls, filename):
+    
+    @classmethod 
+    def deserialize(cls, filename):
         """Function to load and deserialize data from a file."""
         try:
             with open(filename, 'rb') as f:
