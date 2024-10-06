@@ -7,7 +7,7 @@ import json
 def convert_csv_to_json(filename):
     """Function to read csv file and convert it to JSON"""
     try:
-        with open('data.csv', 'r') as f:
+        with open(filename, 'r') as f:
             reader = csv.DictReader(f)
             data = list(reader)
 
