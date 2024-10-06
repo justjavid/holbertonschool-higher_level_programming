@@ -12,7 +12,7 @@ def convert_csv_to_json(filename):
             data = list(reader)
 
         with open('data.json', 'w') as f:
-            json.dump(data, file, indent=4)
+            json.dump(data, f, indent=4)
             return True
     except Exception:
         return False
