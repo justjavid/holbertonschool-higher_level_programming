@@ -7,7 +7,7 @@ def fetch_and_print_posts():
     if r.status_code == 200:
         data = r.json()
     for user in data:
-        print(user['title'])
+        print(f"{user['title']}")
 
 def fetch_and_save_posts():
     r = requests.get('https://jsonplaceholder.typicode.com/posts')
@@ -19,3 +19,5 @@ def fetch_and_save_posts():
         writer.writeheader()
         for user in data:
             writer.writerow({key: value for key, value in user.items() if key != 'userId'})
+
+fetch_and_print_posts()
