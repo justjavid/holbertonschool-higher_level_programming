@@ -32,7 +32,7 @@ class BasicServer(handler):
         else:
             self.send_response(404)
             self.end_headers()
-            self.wfile.write(b"404 Not Found")
+            self.wfile.write(b"Endpoint not found")
 
 with socketserver.TCPServer(("", PORT), BasicServer) as httpd:
     print(f"Serving on port {PORT}")
