@@ -10,9 +10,13 @@ if __name__ == "__main__":
     cur.execute("SELECT c.name, s.name \
                     FROM cities c \
                     INNER JOIN states s ON s.id = c.state_id ")
+    
+    cities = []
     for city in cursor.fetchall():
         if city[1] == argv[4]:
-            print(city[0], end=', ')
+            cities.append(city[0])
+
+    print(", ".join(cities))
 
     cur.close()
     db.close()
