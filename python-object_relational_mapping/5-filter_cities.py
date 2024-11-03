@@ -12,7 +12,7 @@ if __name__ == "__main__":
                     INNER JOIN states s ON s.id = c.state_id ")
     
     cities = []
-    for city in cu.fetchall():
+    for city in cur.fetchall():
         if city[1] == argv[4]:
             cities.append(city[0])
     
