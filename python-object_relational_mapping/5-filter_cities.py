@@ -11,7 +11,6 @@ if __name__ == "__main__":
                     FROM cities c \
                     INNER JOIN states s ON s.id = c.state_id ")
     
-    cities = []
     for city in cur.fetchall():
         if city[1] == argv[4]:
             print(city[0], end=', ')
