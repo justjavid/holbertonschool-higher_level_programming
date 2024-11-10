@@ -1,0 +1,1 @@
+this directory is about learning python-server-side-rendering.
